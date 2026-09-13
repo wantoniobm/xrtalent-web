@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XRTALENT — Conectando Talento y Profesionales en Colombia</title>
+  <meta name="description" content="Encuentra profesionales verificados en Colombia o destaca tus servicios sin intermediarios con XRTALENT.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #3730A3;
+      --secondary: #06B6D4;
+      --accent: #F59E0B;
+      --dark-bg: #0B0F19;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --text-main: #F9FAFB;
+      --text-muted: #9CA3AF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+    .logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-main); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(79, 70, 229, 0.6);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: rgba(79, 70, 229, 0.15);
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      color: #A5B4FC;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #A5B4FC, var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 60px 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(79, 70, 229, 0.4);
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(79, 70, 229, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #818CF8;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .pricing-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .pricing-card {
+      max-width: 500px;
+      margin: 40px auto 0;
+      background: linear-gradient(180deg, rgba(30, 27, 75, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 12px 36px rgba(245, 158, 11, 0.1);
+    }
+    .pro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .price {
+      font-size: 42px;
+      font-weight: 800;
+      color: white;
+      margin: 16px 0 8px;
+    }
+    .price span {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .benefits-list {
+      list-style: none;
+      text-align: left;
+      margin: 28px 0;
+    }
+    .benefits-list li {
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .benefits-list li span.check {
+      color: #10B981;
+      font-weight: bold;
+    }
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0;
+      margin-top: 80px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--text-main); }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 34px; }
+      .footer-content { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-content">
+      <a href="index.html" class="logo-container">
+        <img src="assets/logo.png" alt="XRTALENT Logo" class="logo-img">
+        <span class="logo-text">XRTALENT</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#planes">Plan PRO</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="badge">🚀 Nueva Plataforma Móvil en Colombia</div>
+      <h1>Conecta con Profesionales Verificados <span>Sin Intermediarios</span></h1>
+      <p>XRTALENT es la plataforma que reúne el mejor talento y servicios profesionales en Colombia con canales de contacto directos por WhatsApp, llamada o correo.</p>
+      <div class="hero-buttons">
+        <a href="#planes" class="btn btn-primary">⭐ Conoce el Plan PRO</a>
+        <a href="https://wa.me/573168300743?text=Hola%20XRTALENT,%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="btn btn-whatsapp" target="_blank">💬 Contactar por WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="beneficios" class="grid-3">
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Profesionales Verificados</h3>
+        <p>Auditoría de antecedentes disciplinarios, judiciales y validación de matrícula o tarjeta profesional oficial.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Contacto Inmediato</h3>
+        <p>Habla directamente con el profesional vía WhatsApp o llamada sin tener que pasar por pasarelas ni intermediarios.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h3>Búsqueda por Ubicación</h3>
+        <p>Encuentra expertos en tu ciudad o departamento bajo modalidades presencial, remota o híbrida.</p>
+      </div>
+    </section>
+
+    <section id="planes" class="pricing-section">
+      <div class="badge">Monetización y Crecimiento</div>
+      <h2>Impulsa tu Perfil con XRTALENT PRO</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 8px auto 0;">Destaca frente a miles de personas que buscan tus servicios y abre tus canales comerciales al instante.</p>
+
+      <div class="pricing-card">
+        <div class="pro-badge">👑 PLAN PRO PROFESIONAL</div>
+        <h3 style="font-size: 24px;">Acceso Destacado Total</h3>
+        <div class="price">Plan Mensual <span>/ acceso directo</span></div>
+        <p style="color: var(--text-muted); font-size: 14px;">Sin comisiones sobre los acuerdos o servicios que pactes con tus clientes.</p>
+
+        <ul class="benefits-list">
+          <li><span class="check">✓</span> Canales de contacto 100% abiertos (WhatsApp, llamada y correo directo).</li>
+          <li><span class="check">✓</span> Posicionamiento prioritario en el catálogo y resultados por ciudad.</li>
+          <li><span class="check">✓</span> Insignia dorada distintiva PRO de confianza en tu perfil.</li>
+          <li><span class="check">✓</span> Sin intermediarios ni porcentajes retenidos de tu trabajo.</li>
+        </ul>
+
+        <a href="https://wa.me/573168300743?text=%C2%A1Hola!%20Deseo%20activar%20mi%20Membres%C3%ADa%20XRTALENT%20PRO%20para%20mi%20perfil%20profesional." class="btn btn-whatsapp" style="width: 100%;" target="_blank">
+          Solicitar Activación por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <p><strong>XRTALENT</strong> — Plataforma de Talento y Profesionales en Colombia.</p>
+        <p style="font-size: 13px; margin-top: 4px;">Atención y Soporte: <a href="mailto:support@xrtalent.click" style="color: #A5B4FC;">support@xrtalent.click</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="privacidad.html">Política de Privacidad</a>
+        <a href="terminos.html">Términos del Servicio</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
